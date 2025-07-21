@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,64 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const year = new Date().getFullYear();
+
+  const linkStyle = { margin: "10px 16px" };
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header style={{ margin: "16px", textAlign: "center" }}>
+          <ul>
+            <Link style={linkStyle} href="/">
+              Home
+            </Link>
+            <Link style={linkStyle} href="/products">
+              Products
+            </Link>
+            <Link style={linkStyle} href="/about">
+              About
+            </Link>
+            <Link style={linkStyle} href="/contact">
+              Contact
+            </Link>
+          </ul>
+        </header>
         {children}
+        <footer
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: "16px",
+          }}
+        >
+          <p> © {year} Koala T-Shirt JDRR. All rights reserved.</p>
+          <ul>
+            <Link style={linkStyle} href="/privacy">
+              Privacy Policy
+            </Link>
+
+            <Link
+              style={linkStyle}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/@jdrr-dev"
+              passHref
+            >
+              YouTube
+            </Link>
+            <Link
+              style={linkStyle}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/jd.rios.dev"
+              passHref
+            >
+              Facebook
+            </Link>
+          </ul>
+        </footer>
       </body>
     </html>
   );
