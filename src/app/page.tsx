@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -32,7 +31,7 @@ export default function Home() {
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
     backgroundColor: "rgba(255,255,255,1)",
     margin: "0 auto 16px",
-  };
+  } satisfies React.CSSProperties;
 
   const trackStyle = {
     display: "flex",
@@ -59,7 +58,7 @@ export default function Home() {
     transform: "translateX(-50%)",
     display: "flex",
     gap: "8px",
-  };
+  } satisfies React.CSSProperties;
 
   const dotStyle = (active: boolean) => ({
     width: "10px",

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { TSHIRTS_DATA } from "../../data/data";
+import Image from "next/image";
 function Products() {
   const [selectedSize, setSelectedSize] = useState<string>("All");
   const [selectedColor, setSelectedColor] = useState<string>("All");
@@ -73,7 +74,7 @@ function Products() {
               backgroundColor: "#fff",
             }}
           >
-            <img
+            <Image
               src={tshirt.image}
               alt={tshirt.name}
               style={{ width: "100%", height: "300px", objectFit: "cover" }}
